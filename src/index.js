@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}>
+        <button
+            className="square"
+            onClick={props.onClick}
+            style={{ width: "15vh", height: "15vh", fontSize: "10vh" }}>
             {props.value}
         </button>
     );
@@ -20,6 +26,7 @@ class Board extends React.Component {
                 onClick={() => this.props.onClick(i)}
 
             />
+
         );
     }
 
@@ -98,11 +105,12 @@ class Game extends React.Component {
                 'Go to move #' + move :
                 'Go to game start';
             return (
-                <li key={move}>
-                    <button
+                <ul key={move}>
+                    <Button
+                        style={{ "backgroundColor": "Black", float: "right" }} className="btn btn-dark"
                         onClick={() => this.jumpTo(move)}>{desc}
-                    </button>
-                </li>
+                    </Button>
+                </ul>
             );
         });
 
@@ -115,15 +123,17 @@ class Game extends React.Component {
         }
 
         return (
-            <div className="game">
+            <div className="game" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
                 <div className="game-board">
+                    <div>{status}</div>
+
                     <Board
                         squares={current.squares}
                         onClick={i => this.handleClick(i)}
                     />
+
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
                     <ol>{moves}</ol>
                 </div>
             </div>
