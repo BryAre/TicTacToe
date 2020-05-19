@@ -10,7 +10,7 @@ function Square(props) {
         <button
             className="square"
             onClick={props.onClick}
-            style={{ width: "15vh", height: "15vh", fontSize: "10vh" }}>
+            style={{ width: "15vh", height: "15vh", fontSize: "16vh" }}>
             {props.value}
         </button>
     );
@@ -102,8 +102,8 @@ class Game extends React.Component {
 
         const moves = history.map((step, move) => {
             const desc = move ?
-                'Go to move #' + move :
-                'Go to game start';
+                'GO TO MOVE #' + move :
+                'GAME START';
             return (
                 <ul key={move}>
                     <Button
@@ -116,16 +116,16 @@ class Game extends React.Component {
 
         let status;
         if (winner) {
-            status = 'Winner: ' + winner;
+            status = 'WINNER: ' + winner;
         }
         else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = 'NEXT PLAYER: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
         return (
             <div className="game" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
                 <div className="game-board">
-                    <div>{status}</div>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "5vh" }}> {status}</div>
 
                     <Board
                         squares={current.squares}
