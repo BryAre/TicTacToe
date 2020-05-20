@@ -125,7 +125,7 @@ class Game extends React.Component {
         return (
             <div className="game" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
                 <div className="game-board">
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "5vh" }}> {status}</div>
+                    <div style={{ display: "flex", justifyContent: "center", height: "10vh", fontSize: "5vh" }} > {status}</div>
 
                     <Board
                         squares={current.squares}
